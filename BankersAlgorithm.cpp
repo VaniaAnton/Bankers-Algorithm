@@ -35,7 +35,6 @@ bool is_available(int process_id, int allocated[][R],
 void safe_sequence(bool marked[], int allocated[][R], int max[][R],
 				int need[][R], int available[], vector<int> safe)
 {
-
 	for (int i = 0; i < P; i++) {
 
 		// check if it is not marked
@@ -44,11 +43,6 @@ void safe_sequence(bool marked[], int allocated[][R], int max[][R],
 
 			// mark the process
 			marked[i] = true;
-            //available vector changes
-            cout << endl << "Available vector changes: " << endl;
-            for (int j = 0; j < R; j++)
-                cout << available[j] << "  ";
-
 			// increase the available
 			// by deallocating from process i
 			for (int j = 0; j < R; j++)
@@ -81,17 +75,21 @@ void safe_sequence(bool marked[], int allocated[][R], int max[][R],
 	}
 }
 
+
 // Driver Code
 int main()
 {
-    cout<<"Enter the allocated matrix of size P*R: ";
+    cout<<endl;
+    cout<<"Banker's Algorithm"<<endl;
+    cout<<"Processes(P) ="<<P<<" Resources(R)="<<R<<" by default, you can change it everytime if you need(in the beginning of the code)"<<endl;
+    cout<<"Enter the allocated matrix of size P*R: (row by row)";
     int allocated[P][R];
     for (int i = 0; i < P; i++){
         for (int j = 0; j < R; j++){
             cin >> allocated[i][j];
         }
     }
-    cout<<"Enter the max matrix of size P*R: ";
+    cout<<"Enter the max matrix of size P*R: (row by row)";
     int max[P][R];
     for (int i = 0; i < P; i++){
         for (int j = 0; j < R; j++){
@@ -163,7 +161,7 @@ int main()
         }
         cout << endl;
     }
-
+    cout<<"If you need to calculate vector changes, just take one of the folowing safe sequences\n and add processes from allocated vector to available in order"<<endl;
 	cout << "Safe sequences are:" << endl;
 	safe_sequence(marked, allocated, max, need, available, safe);
 
