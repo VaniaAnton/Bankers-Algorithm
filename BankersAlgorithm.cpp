@@ -80,24 +80,47 @@ void safe_sequence(bool marked[], int allocated[][R], int max[][R],
 // Driver Code
 int main()
 {
-
-	// allocated matrix of size P*R
-	int allocated[P][R] = { { 0, 2, 2, 1 },
-							{ 0, 2, 1, 1 },
-							{ 1, 3, 1, 0 },
-							{ 1, 2, 0, 1 },
-                            { 0, 1, 1, 0 } };
-
-	// max matrix of size P*R
-	int max[P][R] = { { 3, 3, 2, 1 },
-					  { 2, 5, 1, 2 },
-					  { 3, 4, 2, 3 },
-					  { 2, 3, 2, 1 },
-                      { 1, 2, 1, 1 } };
-
-	// Initial total resources
-	int resources[R] = { 4, 11, 5, 6 };
-
+    cout<<"Enter the allocated matrix of size P*R: ";
+    int allocated[P][R];
+    for (int i = 0; i < P; i++){
+        for (int j = 0; j < R; j++){
+            cin >> allocated[i][j];
+        }
+    }
+    cout<<"Enter the max matrix of size P*R: ";
+    int max[P][R];
+    for (int i = 0; i < P; i++){
+        for (int j = 0; j < R; j++){
+            cin >> max[i][j];
+        }
+    }
+    cout<<"Enter total resources of size R: ";
+    int resources[R];
+    for (int i = 0; i < R; i++){
+        cin >> resources[i];
+    }
+    //print allocated matrix
+    cout << "Allocated Matrix is:" << endl;
+    for (int i = 0; i < P; i++){
+        for (int j = 0; j < R; j++){
+            cout << allocated[i][j] << "  ";
+        }
+        cout << endl;
+    }
+    //print max matrix
+    cout << "Max Matrix is:" << endl;
+    for (int i = 0; i < P; i++){
+        for (int j = 0; j < R; j++){
+            cout << max[i][j] << "  ";
+        }
+        cout << endl;
+    }
+    //print resources
+    cout << "Resources are:" << endl;
+    for (int i = 0; i < R; i++){
+        cout << resources[i] << "  ";
+    }
+    cout << endl;   
 	// available vector of size R
 	int available[R];
 
@@ -126,7 +149,7 @@ int main()
     cout << "Need Matrix is:" << endl;
     for (int i = 0; i < P; i++){
         for (int j = 0; j < R; j++){
-            cout << need[i][j] << " ";
+            cout << need[i][j] << "  ";
         }
         cout << endl;
     }
