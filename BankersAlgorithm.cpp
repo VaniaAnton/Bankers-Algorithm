@@ -44,6 +44,10 @@ void safe_sequence(bool marked[], int allocated[][R], int max[][R],
 
 			// mark the process
 			marked[i] = true;
+            //available vector changes
+            cout << endl << "Available vector changes: " << endl;
+            for (int j = 0; j < R; j++)
+                cout << available[j] << "  ";
 
 			// increase the available
 			// by deallocating from process i
@@ -120,7 +124,7 @@ int main()
     for (int i = 0; i < R; i++){
         cout << resources[i] << "  ";
     }
-    cout << endl;   
+    cout << endl;
 	// available vector of size R
 	int available[R];
 
@@ -132,6 +136,12 @@ int main()
 
 		available[i] = resources[i] - sum;
 	}
+    //print available vector
+    cout << "Available vector is:" << endl;
+    for (int i = 0; i < R; i++){
+        cout << available[i] << "  ";
+    }
+    cout << endl;
 
 	// safe vector for displaying a safe-sequence
 	vector<int> safe;
